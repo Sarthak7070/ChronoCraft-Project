@@ -91,7 +91,16 @@ public class WatchServiceImpl implements WatchService {
 //		watchRepository.save(watch);
 //		return watch;
 //	}
-
+    
+    @Override
+    public List<Watch> getWatchesSortedByPrice(boolean ascending) {
+        if (ascending) {
+            return watchRepository.findAllByOrderByPriceAsc();
+        } else {
+            return watchRepository.findAllByOrderByPriceDesc();
+        }
+    }
+    
     @Override
     public void deleteWatch(int id) {
         Watch watch = watchRepository.findById(id)

@@ -23,4 +23,6 @@ public interface WatchService {
 
 	String saveImageFile(MultipartFile imageFile) throws IOException;
 	//Watch addWatch(WatchDTO watchDTO, String imagePath);
+
+	List<Watch> getWatchesSortedByPrice(boolean ascending);
 }

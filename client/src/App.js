@@ -17,7 +17,6 @@ function App() {
   const user = sessionStorage.getItem('userId');  
   return (
     <div className="App">
-      <AuthProvider>
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -30,7 +29,6 @@ function App() {
         <Route path="/orderslist" element={<OrdersList />} />
       </Routes>
       <Footer />
-      </AuthProvider>
     </div>
   );
 }

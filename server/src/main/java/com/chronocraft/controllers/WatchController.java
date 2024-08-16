@@ -97,7 +97,12 @@ public class WatchController {
         return ResponseEntity.ok(watchResult);
     }
     
-    
+    @GetMapping("/sorted-by-price")
+    public ResponseEntity<List<Watch>> getWatchesSortedByPrice(
+            @RequestParam("ascending") boolean ascending) {
+        List<Watch> watches = watchService.getWatchesSortedByPrice(ascending);
+        return ResponseEntity.ok(watches);
+    }
     
     @GetMapping("/all")
     public ResponseEntity<?> getAllWatches() {

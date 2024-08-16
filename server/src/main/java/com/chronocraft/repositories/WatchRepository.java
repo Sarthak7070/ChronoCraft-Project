@@ -11,4 +11,6 @@ import com.chronocraft.entities.Watch;
 public interface WatchRepository extends JpaRepository<Watch, Integer> {
 	List<Watch> findByCategoryId(int category);
 //	Optional<Watch> findById(int id);
+	List<Watch> findAllByOrderByPriceAsc();
+	List<Watch> findAllByOrderByPriceDesc();
 }
