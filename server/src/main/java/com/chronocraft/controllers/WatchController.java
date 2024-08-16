@@ -163,6 +163,11 @@ public class WatchController {
         watchService.deleteWatch(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
-
+    
+    @GetMapping("/search")
+    public ResponseEntity<List<Watch>> searchWatches(@RequestParam("brand") String brand) {
+        List<Watch> watches = watchService.searchWatchesByName(brand);
+        return ResponseEntity.ok(watches);
+    }
   
 }

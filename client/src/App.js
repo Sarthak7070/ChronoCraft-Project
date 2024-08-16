@@ -12,6 +12,7 @@ import AddWatchForm from './pages/AddWatchForm';
 import Orders from './components/Orders';
 import { AuthProvider } from './context/AuthContext';
 import OrdersList from './components/OrdersList';
+import SearchResult from './pages/SearchResult';
 
 function App() {
   const user = sessionStorage.getItem('userId');  
@@ -27,6 +28,7 @@ function App() {
         <Route path="/addwatch" element={<AddWatchForm />} />
         <Route path="/orders" element={<Orders />} />
         <Route path="/orderslist" element={<OrdersList />} />
+        <Route path="/search" element={<SearchResult />} />
       </Routes>
       <Footer />
     </div>

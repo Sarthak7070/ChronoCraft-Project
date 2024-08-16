@@ -12,9 +12,9 @@ function ProductList({ onAddToCart }) {
 
     const fetchProducts = async () => {
         try {
-            const response = await axios.get('http://localhost:8080/watches/sorted-by-price', {
-                params: { ascending: sortOrder === 'asc' }
-            });
+            const url = 'http://localhost:8080/watches/sorted-by-price';
+            const params = { ascending: sortOrder === 'asc' };
+            const response = await axios.get(url, { params });
             setProducts(response.data);
         } catch (error) {
             console.error('Error fetching products:', error);

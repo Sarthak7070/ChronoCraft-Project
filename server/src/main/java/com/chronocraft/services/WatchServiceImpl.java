@@ -101,6 +101,9 @@ public class WatchServiceImpl implements WatchService {
         }
     }
     
+
+
+    
     @Override
     public void deleteWatch(int id) {
         Watch watch = watchRepository.findById(id)
@@ -122,6 +125,11 @@ public class WatchServiceImpl implements WatchService {
     	watches = watchRepository.findAll();
     	return watches;
     }
+
+	@Override
+	public List<Watch> searchWatchesByName(String brand) {
+		return watchRepository.findByTitleContainingIgnoreCase(brand);
+	}
 
 	
 }
