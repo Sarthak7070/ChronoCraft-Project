@@ -13,6 +13,7 @@ import Orders from './components/Orders';
 import { AuthProvider } from './context/AuthContext';
 import OrdersList from './components/OrdersList';
 import SearchResult from './pages/SearchResult';
+import AdminPage from './pages/AdminPage';
 
 function App() {
   const user = sessionStorage.getItem('userId');  
@@ -29,6 +30,7 @@ function App() {
         <Route path="/orders" element={<Orders />} />
         <Route path="/orderslist" element={<OrdersList />} />
         <Route path="/search" element={<SearchResult />} />
+        <Route path="/adminpage" element={<AdminPage/>}></Route>
       </Routes>
       <Footer />
     </div>

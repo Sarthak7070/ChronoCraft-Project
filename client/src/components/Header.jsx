@@ -4,6 +4,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import AuthContext from '../context/AuthContext';
 import axios from 'axios';
 import SearchBar from './SearchBar';
+import '../styles/Header.css'
 
 function Header() {
     const { userId, logout } = useContext(AuthContext);
@@ -56,20 +57,23 @@ function Header() {
                 <h1 className="mb-3">ChronoCraft</h1>
                 <SearchBar onSearch={handleSearch} />
                 <nav>
-                    <Link to="/" className="text-white mx-2">Home</Link>
-                    <Link to="/products" className="text-white mx-2">Products</Link>
-                    <Link to="/register" className="text-white mx-2">Register</Link>
-                    {userId ? (
-                        <>
-                            <span className="me-3">Welcome, {`${user.role}-${user.firstName}`}</span>
-                            <Link to="/cart" className="text-white mx-2">Cart</Link>
-                            <Link to={"/orderslist"}>Orders</Link>
-                            <button onClick={logout} className="btn btn-link">Logout</button>
-                        </>
-                    ) : (
-                        <Link to="/login" className="text-white mx-2">Login</Link>
-                    )}
-                </nav>
+    <Link to="/" className="text-white mx-2">Home</Link>
+    <Link to="/products" className="text-white mx-2">Products</Link>
+    <Link to="/register" className="text-white mx-2">Register</Link>
+    <div className="right-nav">
+        {userId ? (
+            <>
+                <span>Welcome, {`${user.role}-${user.firstName}`}</span>
+                <Link to="/cart" className="text-white mx-2">Cart</Link>
+                <Link to="/orderslist" className="text-white mx-2">Orders</Link>
+                <button onClick={logout} className="btn btn-link">Logout</button>
+            </>
+        ) : (
+            <Link to="/login" className="text-white mx-2">Login</Link>
+        )}
+    </div>
+</nav>
+
             </div>
         </header>
     );
